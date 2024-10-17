@@ -45,9 +45,9 @@ export const login = async (req, res) => {
       return res.status(400).json({ message: "incorrect password" });
     }
 
-    generateToken(user._id, res);
+   const token  =  generateToken(user._id, res);
 
-    res.status(200).json({ user, message: "Logged In" });
+    res.status(200).json({ user,token, message: "Logged In" });
   } catch (error) {
     console.log(error);
   }
